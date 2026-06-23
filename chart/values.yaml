@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/platform-engineer-lab/sample-service
-  tag: dcf8478ea8cf926202a92c089c71d148af2955ca   # CI bumps this line on every push to main (sed: "s|^  tag:.*|  tag: <sha>|")
+  tag: f38241a   # CI bumps this line on every push to main (sed: "s|^  tag:.*|  tag: <sha>|")
   pullPolicy: IfNotPresent
 
 service:
