@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-service
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: sample-service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sample-service
+  name: sample-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-service
+  template:
+    metadata:
+      labels:
+        app: sample-service
+    spec:
+      containers:
+        - image: ghcr.io/platform-engineer-lab/sample-service:latest
+          imagePullPolicy: IfNotPresent
+          name: sample-service
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          resources:
+            limits:
+              cpu: 100m
+              memory: 64Mi
+            requests:
+              cpu: 25m
+              memory: 32Mi
