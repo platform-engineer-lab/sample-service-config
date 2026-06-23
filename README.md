@@ -51,7 +51,7 @@ Before the first promotion can go **green**, two things must be true:
 Create a GitHub App with:
 - **Contents:** read/write
 - **Pull requests:** read/write
-- **Commit statuses:** write
+- **Checks:** write  ← gitops-promoter uses the Check Runs API, not the Commit Statuses API
 
 Install it on this repo (`sample-service-config`) and on `sample-service`.
 Note the `appID` and `installationID`, then:
