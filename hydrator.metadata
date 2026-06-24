@@ -1,7 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "31607ec06a184ce8d79bac190235caf982e18807",
+  "drySha": "582962fa711353cb2e32fda5f281a66bd1a57f65",
   "author": "Rodrigo Vallejo <rxvallejoc@gmail.com>",
-  "date": "2026-06-23T21:12:17Z",
-  "subject": "docs: fix GitHub App permission — Checks:write not Commit statuses"
+  "date": "2026-06-23T18:11:30-05:00",
+  "subject": "Merge pull request #3 from platform-engineer-lab/ci/bump-image-d0eac00"
 }
