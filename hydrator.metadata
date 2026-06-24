@@ -1,7 +1,8 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "582962fa711353cb2e32fda5f281a66bd1a57f65",
+  "drySha": "63a9ffb13888cf500c23072b12eec7047d1c0adc",
   "author": "Rodrigo Vallejo <rxvallejoc@gmail.com>",
-  "date": "2026-06-23T18:11:30-05:00",
-  "subject": "Merge pull request #3 from platform-engineer-lab/ci/bump-image-d0eac00"
+  "date": "2026-06-24T16:49:58Z",
+  "subject": "Merge pull request #8 from platform-engineer-lab/ci/bump-image-06c161d",
+  "body": "ci: bump sample-service image to 06c161d\n"
 }
