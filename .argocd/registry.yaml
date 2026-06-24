@@ -10,4 +10,4 @@ environment:
     autoMerge: true
   - env: prod
     valuesFile: env/prod/values.yaml
-    autoMerge: true
+    autoMerge: false
