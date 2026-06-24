@@ -29,6 +29,21 @@ main (image tag bump PR merged)
   → Argo CD syncs env/prod (prod spoke)
 ```
 
+## First-run prerequisites
+
+Before the first promotion can go **green**, two things must be true:
+
+1. **A real image must exist in GHCR.** `chart/values.yaml` ships `image.tag: latest`, but
+   CI only ever publishes immutable `:<sha>` tags — `:latest` is never pushed. On the first
+   `make up`, before any CI run, pods hit `ImagePullBackOff`, dev never reports healthy, and
+   the `argocd-health` gate stays red (hydration still works — rendering doesn't pull).
+   Fix: trigger the `sample-service` CI at least once first, then seed `chart/values.yaml`
+   `image.tag` with the published SHA before running `make up`.
+
+2. **The GHCR package must be public** (or the spoke clusters need an `imagePullSecret`).
+   New GHCR packages default to private. Go to
+   `https://github.com/orgs/platform-engineer-lab/packages` → package settings → make public.
+
 ## Required secrets (manual — not in git)
 
 ### 1. GitHub App for gitops-promoter (in `promoter-system` on the management cluster)
@@ -36,7 +51,7 @@ main (image tag bump PR merged)
 Create a GitHub App with:
 - **Contents:** read/write
 - **Pull requests:** read/write
-- **Commit statuses:** write
+- **Checks:** write  ← gitops-promoter uses the Check Runs API, not the Commit Statuses API
 
 Install it on this repo (`sample-service-config`) and on `sample-service`.
 Note the `appID` and `installationID`, then:
