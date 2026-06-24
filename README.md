@@ -68,17 +68,20 @@ Update `platform-addons/manifests/gitops-promoter/scm-provider.yaml` with the re
 ### 2. Argo CD repo write credential (hydrator pushes to `env/*-next`)
 
 The Argo CD Source Hydrator needs write access to this repo to push hydrated manifests.
-Create a repository Secret in the `argocd` namespace on the management cluster:
+The secret **must** use `secret-type: repository-write` — the hydrator calls
+`GetWriteRepository()` which queries a separate backend from the normal read credential.
+A `repository` (read) secret will not work and the hydrator will silently fall back to
+no-credential mode, causing `git push` to fail.
 
 ```bash
 kubectl --context k3d-management apply -f - <<EOF
 apiVersion: v1
 kind: Secret
 metadata:
-  name: repo-sample-service-config
+  name: repo-write-sample-service-config
   namespace: argocd
   labels:
-    argocd.argoproj.io/secret-type: repository
+    argocd.argoproj.io/secret-type: repository-write
 stringData:
   url: https://github.com/platform-engineer-lab/sample-service-config
   username: git
@@ -86,10 +89,18 @@ stringData:
 EOF
 ```
 
-### 3. CI PAT in `sample-service` repo
+### 3. CI GitHub App secrets in `sample-service` repo
 
-Add a fine-grained PAT as `CONFIG_REPO_TOKEN` in `sample-service`'s repo secrets
-(see `sample-service/README.md`).
+CI uses a GitHub App (the same one as gitops-promoter) to open PRs into this repo.
+Add two secrets on the `sample-service` repository:
+
+| Secret | Value |
+|---|---|
+| `APP_ID` | GitHub App ID (e.g. `4117391`) |
+| `APP_PRIVATE_KEY` | Contents of the downloaded `.pem` private key file |
+
+The App must be installed on both `sample-service` and `sample-service-config` with
+**Contents: read/write** and **Pull requests: read/write** permissions.
 
 ## Local chart validation
 
