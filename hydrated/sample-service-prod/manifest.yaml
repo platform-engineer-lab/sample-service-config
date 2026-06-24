@@ -26,7 +26,7 @@ spec:
         app: sample-service
     spec:
       containers:
-        - image: ghcr.io/platform-engineer-lab/sample-service:latest
+        - image: ghcr.io/platform-engineer-lab/sample-service:d0eac00
           imagePullPolicy: IfNotPresent
           name: sample-service
           ports:
