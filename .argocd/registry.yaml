@@ -1,0 +1,13 @@
+name: sample-service
+repoUrl: https://github.com/platform-engineer-lab/sample-service-config
+chartPath: chart
+namespace: sample-service
+githubOwner: platform-engineer-lab
+githubName: sample-service-config
+environment:
+  - env: dev
+    valuesFile: env/dev/values.yaml
+    autoMerge: true
+  - env: prod
+    valuesFile: env/prod/values.yaml
+    autoMerge: true
