@@ -7,5 +7,7 @@ githubName: sample-service-config
 environment:
   - env: dev
     valuesFile: env/dev/values.yaml
+    autoMerge: true
   - env: prod
     valuesFile: env/prod/values.yaml
+    autoMerge: true
