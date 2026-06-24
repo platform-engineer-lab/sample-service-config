@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/platform-engineer-lab/sample-service
-  tag: d0eac00
+  tag: fdff6f9
   pullPolicy: IfNotPresent
 
 service:
