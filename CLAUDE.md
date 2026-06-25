@@ -70,5 +70,13 @@ Do **not** delete `env/*` or `env/*-next` branches on PR merge.
 - To change deployment targets, chart path, namespace, or promotion behaviour, edit `.argocd/registry.yaml` — the platform chart picks up the change on next Argo CD sync.
 - `autoMerge: false` on an environment means gitops-promoter opens a PR but waits for manual approval before merging `env/*-next` → `env/*`.
 - The image tag lives in `chart/values.yaml` (shared base) — CI bumps it here so one dry SHA promotes through all envs in order.
-- **Argo CD Source Hydrator stuck after `main` push**: the hydrator only runs on Application *creation*. After the first run, the app-controller only polls `env/dev`/`env/prod` — it never re-checks `main` without a GitHub webhook. Fix: delete and let the parent recreate the Applications: `kubectl --context k3d-management -n argocd delete application sample-service-dev sample-service-prod --wait=false`
+- **Argo CD Source Hydrator stuck after `main` push**: the hydrator only runs on Application *creation*. After the first run, the app-controller only polls `env/dev`/`env/prod` — it never re-checks `main` without a GitHub webhook. Fix: delete and let the parent recreate the Applications: `kubectl --context k3d-management -n argocd delete application sample-service-dev sample-service-prod --wait=false`. Long-term fix: keep ngrok running and the webhook pointed at Argo CD (see `platform-control-plane/CLAUDE.md` → "GitHub webhook tunnel").
+- **Updating the ngrok webhook URL**: ngrok URLs change on restart. After restarting ngrok, update webhook id `646244734` on this repo:
+  ```bash
+  NGROK_URL=$(curl -s localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url')
+  gh api repos/platform-engineer-lab/sample-service-config/hooks/646244734 \
+    --method PATCH \
+    --field "config[url]=${NGROK_URL}/api/webhook" \
+    --field "config[content_type]=json"
+  ```
 - **gitops-promoter stale secret**: if `ChangeTransferPolicy` shows "Secret not found" after `github-app-credentials` exists, restart the controller: `kubectl --context k3d-management -n promoter-system rollout restart deployment/promoter-controller-manager`.
