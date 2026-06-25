@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sample-service
+  name: sample-service-stable
 spec:
   ports:
     - port: 8080
@@ -9,8 +9,48 @@ spec:
   selector:
     app: sample-service
 ---
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-service-canary
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: sample-service
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: sample-service
+spec:
+  hostnames:
+    - sample.platformlab.com
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: podinfo
+      namespace: podinfo
+  rules:
+    - backendRefs:
+        - group: ""
+          kind: Service
+          name: sample-service-stable
+          port: 8080
+          weight: 100
+        - group: ""
+          kind: Service
+          name: sample-service-canary
+          port: 8080
+          weight: 0
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   labels:
     app: sample-service
@@ -20,6 +60,25 @@ spec:
   selector:
     matchLabels:
       app: sample-service
+  strategy:
+    canary:
+      canaryService: sample-service-canary
+      stableService: sample-service-stable
+      steps:
+        - setWeight: 25
+        - pause:
+            duration: 60s
+        - setWeight: 50
+        - pause:
+            duration: 60s
+        - setWeight: 75
+        - pause:
+            duration: 60s
+      trafficRouting:
+        plugins:
+          argoproj-labs/gatewayAPI:
+            httpRoute: sample-service
+            namespace: sample-service
   template:
     metadata:
       labels:
@@ -31,6 +90,7 @@ spec:
           name: sample-service
           ports:
             - containerPort: 8080
+              protocol: TCP
           readinessProbe:
             httpGet:
               path: /healthz

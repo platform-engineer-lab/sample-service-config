@@ -1,8 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "065bc50cb5b67f40b5bb922b579ae46b91683335",
-  "author": "Rodrigo Vallejo <rxvallejoc@gmail.com>",
-  "date": "2026-06-24T21:26:23Z",
-  "subject": "Merge pull request #11 from platform-engineer-lab/ci/bump-image-af4d53b",
-  "body": "ci: bump sample-service image to af4d53b\n"
+  "drySha": "10e3ae67e05ece2485e1e464b130aaae8ea565ef",
+  "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
+  "date": "2026-06-25T17:10:49Z",
+  "subject": "fix: add explicit protocol and gateway defaults to prevent Argo CD OutOfSync diffs"
 }
