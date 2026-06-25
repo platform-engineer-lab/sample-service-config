@@ -9,7 +9,11 @@ spec:
   hostnames:
     - {{ .Values.hostname }}
   rules:
-    - backendRefs:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
         - name: {{ .Release.Name }}-stable
           port: {{ .Values.service.port }}
           weight: 100
