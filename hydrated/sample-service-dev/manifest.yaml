@@ -38,6 +38,10 @@ spec:
         - name: sample-service-canary
           port: 8080
           weight: 0
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
