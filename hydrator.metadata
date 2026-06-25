@@ -1,7 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "1f22fa1ef686e3250cf3c5ce55d0a23cde3936fa",
+  "drySha": "10e3ae67e05ece2485e1e464b130aaae8ea565ef",
   "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
-  "date": "2026-06-25T17:06:19Z",
-  "subject": "fix: add explicit PathPrefix match to HTTPRoute to match gateway controller defaults"
+  "date": "2026-06-25T17:10:49Z",
+  "subject": "fix: add explicit protocol and gateway defaults to prevent Argo CD OutOfSync diffs"
 }
