@@ -8,6 +8,8 @@ service:
 
 replicaCount: 1
 
+hostname: ""
+
 resources:
   requests:
     cpu: 25m
@@ -15,3 +17,11 @@ resources:
   limits:
     cpu: 100m
     memory: 64Mi
+
+rollout:
+  canary:
+    steps:
+      - setWeight: 50
+      - pause:
+          duration: 30s
+      - setWeight: 100

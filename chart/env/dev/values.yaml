@@ -1,1 +1,9 @@
 replicaCount: 1
+hostname: sample-dev.platformlab.com
+rollout:
+  canary:
+    steps:
+      - setWeight: 50
+      - pause:
+          duration: 20s
+      - setWeight: 100
