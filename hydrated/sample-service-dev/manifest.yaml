@@ -80,7 +80,7 @@ spec:
         app: sample-service
     spec:
       containers:
-        - image: ghcr.io/platform-engineer-lab/sample-service:af4d53b
+        - image: ghcr.io/platform-engineer-lab/sample-service:06c161d
           imagePullPolicy: IfNotPresent
           name: sample-service
           ports:
