@@ -1,8 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "f30e3b93ae7f1d9112f03f7ee1940d095539df18",
+  "drySha": "1f22fa1ef686e3250cf3c5ce55d0a23cde3936fa",
   "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
-  "date": "2026-06-25T16:49:55Z",
-  "subject": "feat: replace Deployment with Argo Rollouts canary + Envoy Gateway traffic split",
-  "body": "- convert Deployment to Rollout with canary strategy and gatewayAPI traffic routing\n- add stable and canary Services for Rollout weight management\n- add HTTPRoute attached to shared podinfo Gateway with per-env hostname\n- add rollout.canary.steps and hostname values per env (dev: 20s pause, prod: 3x60s pauses)\n"
+  "date": "2026-06-25T17:06:19Z",
+  "subject": "fix: add explicit PathPrefix match to HTTPRoute to match gateway controller defaults"
 }
