@@ -1,8 +1,8 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "065bc50cb5b67f40b5bb922b579ae46b91683335",
-  "author": "Rodrigo Vallejo <rxvallejoc@gmail.com>",
-  "date": "2026-06-24T21:26:23Z",
-  "subject": "Merge pull request #11 from platform-engineer-lab/ci/bump-image-af4d53b",
-  "body": "ci: bump sample-service image to af4d53b\n"
+  "drySha": "f30e3b93ae7f1d9112f03f7ee1940d095539df18",
+  "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
+  "date": "2026-06-25T16:49:55Z",
+  "subject": "feat: replace Deployment with Argo Rollouts canary + Envoy Gateway traffic split",
+  "body": "- convert Deployment to Rollout with canary strategy and gatewayAPI traffic routing\n- add stable and canary Services for Rollout weight management\n- add HTTPRoute attached to shared podinfo Gateway with per-env hostname\n- add rollout.canary.steps and hostname values per env (dev: 20s pause, prod: 3x60s pauses)\n"
 }

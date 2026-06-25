@@ -1,6 +1,6 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "065bc50cb5b67f40b5bb922b579ae46b91683335",
+  "drySha": "f30e3b93ae7f1d9112f03f7ee1940d095539df18",
   "commands": [
     "helm template . --name-template sample-service --namespace sample-service --values ./chart/env/prod/values.yaml --include-crds"
   ]
