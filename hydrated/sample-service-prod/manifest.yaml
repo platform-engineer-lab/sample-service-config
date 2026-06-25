@@ -28,14 +28,20 @@ spec:
   hostnames:
     - sample.platformlab.com
   parentRefs:
-    - name: podinfo
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: podinfo
       namespace: podinfo
   rules:
     - backendRefs:
-        - name: sample-service-stable
+        - group: ""
+          kind: Service
+          name: sample-service-stable
           port: 8080
           weight: 100
-        - name: sample-service-canary
+        - group: ""
+          kind: Service
+          name: sample-service-canary
           port: 8080
           weight: 0
       matches:
@@ -84,6 +90,7 @@ spec:
           name: sample-service
           ports:
             - containerPort: 8080
+              protocol: TCP
           readinessProbe:
             httpGet:
               path: /healthz
