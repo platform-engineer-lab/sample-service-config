@@ -1,8 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "fadde74c4556924df6ca2b7bc74275fbda2a6d19",
-  "author": "platform-gitops-promoter[bot] <295920631+platform-gitops-promoter[bot]@users.noreply.github.com>",
-  "date": "2026-06-29T16:35:36Z",
-  "subject": "ci: bump sample-service image to 3a598de (#20)",
-  "body": "Co-authored-by: CI <ci@platformlab.local>\n"
+  "drySha": "41fc6364eaa34970b490d7238924514b64b126f9",
+  "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
+  "date": "2026-06-29T21:24:15Z",
+  "subject": "fix: remove explicit namespace from gatewayAPI plugin config to use Rollout namespace by default"
 }
