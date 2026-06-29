@@ -37,6 +37,5 @@ spec:
         plugins:
           argoproj-labs/gatewayAPI:
             httpRoute: {{ .Release.Name }}
-            namespace: {{ .Release.Namespace }}
       steps:
         {{- toYaml .Values.rollout.canary.steps | nindent 8 }}
