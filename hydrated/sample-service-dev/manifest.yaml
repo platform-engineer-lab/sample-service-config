@@ -73,7 +73,6 @@ spec:
         plugins:
           argoproj-labs/gatewayAPI:
             httpRoute: sample-service
-            namespace: sample-service
   template:
     metadata:
       labels:
