@@ -10,6 +10,16 @@ replicaCount: 1
 
 hostname: ""
 
+probe:
+  path: /healthz
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  liveness: false
+
+gateway:
+  name: podinfo
+  namespace: podinfo
+
 resources:
   requests:
     cpu: 25m
