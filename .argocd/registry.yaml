@@ -1,3 +1,4 @@
+type: promoter
 name: sample-service
 repoUrl: https://github.com/platform-engineer-lab/sample-service-config
 chartPath: chart
