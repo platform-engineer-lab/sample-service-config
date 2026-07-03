@@ -1,25 +1,19 @@
 image:
   repository: ghcr.io/platform-engineer-lab/sample-service
-  tag: 3a598de
+  tag: c7f727d
   pullPolicy: IfNotPresent
-
 service:
   port: 8080
-
 replicaCount: 1
-
 hostname: ""
-
 probe:
   path: /healthz
   initialDelaySeconds: 5
   periodSeconds: 10
   liveness: false
-
 gateway:
   name: podinfo
   namespace: podinfo
-
 resources:
   requests:
     cpu: 25m
@@ -27,7 +21,6 @@ resources:
   limits:
     cpu: 100m
     memory: 64Mi
-
 rollout:
   canary:
     steps:
