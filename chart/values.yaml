@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/platform-engineer-lab/sample-service
-  tag: c7f727d
+  tag: d446bfc
   pullPolicy: IfNotPresent
 service:
   port: 8080
@@ -28,7 +28,6 @@ rollout:
       - pause:
           duration: 30s
       - setWeight: 100
-
 securityContext:
   runAsNonRoot: true
   allowPrivilegeEscalation: false
