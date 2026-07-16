@@ -84,7 +84,7 @@ spec:
         app: sample-service
     spec:
       containers:
-        - image: ghcr.io/platform-engineer-lab/sample-service:c7f727d
+        - image: ghcr.io/platform-engineer-lab/sample-service:d446bfc
           imagePullPolicy: IfNotPresent
           livenessProbe:
             httpGet:
