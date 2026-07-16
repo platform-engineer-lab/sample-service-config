@@ -1,7 +1,8 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "0d2f75dcba26867200af95317d69088958950800",
-  "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
-  "date": "2026-07-14T17:54:28Z",
-  "subject": "feat: enable livenessProbe and restricted securityContext"
+  "drySha": "9dacce1a8846a92085bc3357de34fe107ec5afb1",
+  "author": "platform-gitops-promoter[bot] <295920631+platform-gitops-promoter[bot]@users.noreply.github.com>",
+  "date": "2026-07-16T00:47:05Z",
+  "subject": "ci: bump sample-service image to d446bfc (#28)",
+  "body": "Co-authored-by: CI <ci@platformlab.local>\n"
 }
