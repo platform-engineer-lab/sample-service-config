@@ -84,8 +84,14 @@ spec:
         app: sample-service
     spec:
       containers:
-        - image: ghcr.io/platform-engineer-lab/sample-service:3a598de
+        - image: ghcr.io/platform-engineer-lab/sample-service:d446bfc
           imagePullPolicy: IfNotPresent
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 10
           name: sample-service
           ports:
             - containerPort: 8080
@@ -103,3 +109,11 @@ spec:
             requests:
               cpu: 25m
               memory: 32Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            runAsNonRoot: true
+            seccompProfile:
+              type: RuntimeDefault
