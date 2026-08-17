@@ -1,7 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "42ba0cc6af0e7f361853d9a94a92829f778a29c1",
+  "drySha": "3c106221864bda341a22031b1ee43f74b3a5e190",
   "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
-  "date": "2026-08-17T14:52:32Z",
-  "subject": "feat: enable OpenTelemetry auto-instrumentation via podAnnotations"
+  "date": "2026-08-17T20:12:12Z",
+  "subject": "fix: pin runAsUser 65532 so OTel-injected init container satisfies runAsNonRoot"
 }
