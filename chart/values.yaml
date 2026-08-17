@@ -30,6 +30,7 @@ rollout:
       - setWeight: 100
 securityContext:
   runAsNonRoot: true
+  runAsUser: 65532
   allowPrivilegeEscalation: false
   capabilities:
     drop: ["ALL"]
