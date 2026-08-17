@@ -1,7 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "0e6a1f050b48bd51281210714b08ee8e36dd4a1d",
+  "drySha": "630d232aef47f5647a897243db83927765918d08",
   "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
-  "date": "2026-08-17T20:19:21Z",
-  "subject": "chore: vendor service-app chart (stable OTel service name label)"
+  "date": "2026-08-17T20:24:32Z",
+  "subject": "fix: pin stable OTel service.name via resource annotation (override ReplicaSet-derived name)"
 }
