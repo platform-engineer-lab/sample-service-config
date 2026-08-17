@@ -35,3 +35,10 @@ securityContext:
     drop: ["ALL"]
   seccompProfile:
     type: RuntimeDefault
+
+# OpenTelemetry auto-instrumentation (OTel Operator injects the Go eBPF sidecar;
+# it needs the target binary path and shareProcessNamespace, which the operator
+# sets automatically).
+podAnnotations:
+  instrumentation.opentelemetry.io/inject-go: "business-apps/platform"
+  instrumentation.opentelemetry.io/otel-go-auto-target-exe: "/sample-service"
