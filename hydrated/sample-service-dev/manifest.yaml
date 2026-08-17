@@ -80,6 +80,7 @@ spec:
         instrumentation.opentelemetry.io/otel-go-auto-target-exe: /sample-service
       labels:
         app: sample-service
+        app.kubernetes.io/name: sample-service
     spec:
       containers:
         - image: ghcr.io/platform-engineer-lab/sample-service:d446bfc
