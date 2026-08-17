@@ -118,5 +118,6 @@ spec:
               drop:
                 - ALL
             runAsNonRoot: true
+            runAsUser: 65532
             seccompProfile:
               type: RuntimeDefault
