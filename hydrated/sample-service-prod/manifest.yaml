@@ -80,6 +80,9 @@ spec:
             httpRoute: sample-service
   template:
     metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-go: business-apps/platform
+        instrumentation.opentelemetry.io/otel-go-auto-target-exe: /sample-service
       labels:
         app: sample-service
     spec:
