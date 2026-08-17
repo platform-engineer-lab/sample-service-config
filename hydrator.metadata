@@ -1,7 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "3c106221864bda341a22031b1ee43f74b3a5e190",
+  "drySha": "0e6a1f050b48bd51281210714b08ee8e36dd4a1d",
   "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
-  "date": "2026-08-17T20:12:12Z",
-  "subject": "fix: pin runAsUser 65532 so OTel-injected init container satisfies runAsNonRoot"
+  "date": "2026-08-17T20:19:21Z",
+  "subject": "chore: vendor service-app chart (stable OTel service name label)"
 }
