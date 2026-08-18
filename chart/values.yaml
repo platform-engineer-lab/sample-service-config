@@ -46,7 +46,6 @@ securityContext:
 # it needs the target binary path and shareProcessNamespace, which the operator
 # sets automatically).
 podAnnotations:
-  platform/rollout-nonce: "gate-demo-1"
   resource.opentelemetry.io/service.name: "sample-service"
   instrumentation.opentelemetry.io/inject-go: "business-apps/platform"
   instrumentation.opentelemetry.io/otel-go-auto-target-exe: "/sample-service"
