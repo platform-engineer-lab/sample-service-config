@@ -1,7 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "a64f79717d61149fb53685c2018f4dd358417769",
+  "drySha": "acb31f33d6ccf6e007431dccc8f41f9a4ff9c871",
   "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
-  "date": "2026-08-18T16:23:50Z",
-  "subject": "feat: enable Mimir-backed RED success-rate canary gate (cluster-tagged)"
+  "date": "2026-08-18T16:28:18Z",
+  "subject": "chore: rollout nonce to trigger a canary (verify metric gate)"
 }
