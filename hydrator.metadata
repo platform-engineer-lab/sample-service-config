@@ -1,7 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "3c106221864bda341a22031b1ee43f74b3a5e190",
+  "drySha": "630d232aef47f5647a897243db83927765918d08",
   "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
-  "date": "2026-08-17T20:12:12Z",
-  "subject": "fix: pin runAsUser 65532 so OTel-injected init container satisfies runAsNonRoot"
+  "date": "2026-08-17T20:24:32Z",
+  "subject": "fix: pin stable OTel service.name via resource annotation (override ReplicaSet-derived name)"
 }
