@@ -62,6 +62,16 @@ spec:
       app: sample-service
   strategy:
     canary:
+      analysis:
+        args:
+          - name: service-name
+            value: sample-service
+          - name: cluster
+            value: prod
+        startingStep: 1
+        templates:
+          - clusterScope: true
+            templateName: red-success-rate
       canaryService: sample-service-canary
       stableService: sample-service-stable
       steps:
