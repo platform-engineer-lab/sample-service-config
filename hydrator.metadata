@@ -1,7 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "630d232aef47f5647a897243db83927765918d08",
+  "drySha": "149101447c11673a9afbbc021a6fa6f134d2352f",
   "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
-  "date": "2026-08-17T20:24:32Z",
-  "subject": "fix: pin stable OTel service.name via resource annotation (override ReplicaSet-derived name)"
+  "date": "2026-08-18T16:33:14Z",
+  "subject": "chore: remove canary-gate demo nonce"
 }
