@@ -1,7 +1,10 @@
 replicaCount: 2
 hostname: sample.platformlab.com
+cluster: prod
 rollout:
   canary:
+    analysis:
+      enabled: true
     steps:
       - setWeight: 25
       - pause:

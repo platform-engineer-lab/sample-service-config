@@ -6,6 +6,9 @@ service:
   port: 8080
 replicaCount: 1
 hostname: ""
+
+# Cluster label for canary analysis queries (overridden per env).
+cluster: ""
 probe:
   path: /healthz
   initialDelaySeconds: 5
@@ -28,6 +31,8 @@ rollout:
       - pause:
           duration: 30s
       - setWeight: 100
+    analysis:
+      enabled: false
 securityContext:
   runAsNonRoot: true
   runAsUser: 65532
