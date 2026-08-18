@@ -62,12 +62,22 @@ spec:
       app: sample-service
   strategy:
     canary:
+      analysis:
+        args:
+          - name: service-name
+            value: sample-service
+          - name: cluster
+            value: dev
+        startingStep: 1
+        templates:
+          - clusterScope: true
+            templateName: red-success-rate
       canaryService: sample-service-canary
       stableService: sample-service-stable
       steps:
         - setWeight: 50
         - pause:
-            duration: 20s
+            duration: 40s
         - setWeight: 100
       trafficRouting:
         plugins:
