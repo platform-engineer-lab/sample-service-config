@@ -93,7 +93,6 @@ spec:
       annotations:
         instrumentation.opentelemetry.io/inject-go: business-apps/platform
         instrumentation.opentelemetry.io/otel-go-auto-target-exe: /sample-service
-        platform/rollout-nonce: gate-demo-1
         resource.opentelemetry.io/service.name: sample-service
       labels:
         app: sample-service

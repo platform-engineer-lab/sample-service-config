@@ -1,7 +1,7 @@
 {
   "repoURL": "https://github.com/platform-engineer-lab/sample-service-config",
-  "drySha": "acb31f33d6ccf6e007431dccc8f41f9a4ff9c871",
+  "drySha": "149101447c11673a9afbbc021a6fa6f134d2352f",
   "author": "Argo CD Hydrator (manual) <ci@platformlab.local>",
-  "date": "2026-08-18T16:28:18Z",
-  "subject": "chore: rollout nonce to trigger a canary (verify metric gate)"
+  "date": "2026-08-18T16:33:14Z",
+  "subject": "chore: remove canary-gate demo nonce"
 }
